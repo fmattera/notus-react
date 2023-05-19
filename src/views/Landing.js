@@ -12,6 +12,9 @@ const Landing = ()=>{
   const [selectedItem, setSelectedItem] = useState('');
   const [loading, setLoading] = useState(false);
   const imageRef = useRef(null);
+  const [boxCoordinates, setBoxCoordinates] = useState(null);
+  const [error, setError] = useState(null);
+
 
   const handleSave = () => {
     const image = imageRef.current;
@@ -49,12 +52,13 @@ const Landing = ()=>{
 
   const handleImageLoaded = (image) => {
     imageRef.current = image;
-    console.log(imageRef.current);
+    //console.log(imageRef.current);
   };
 
   const handleReplace = () => { 
-    setOutputImageSrc(null)
-    handleSave();
+    if (!boxCoordinates){
+      handleSave();
+    }
 };
 
 // Add a key prop to the ReactCrop component
@@ -62,7 +66,8 @@ const reactCropKey = completedCrop ? completedCrop.width + '-' + completedCrop.h
 
   useEffect(() => {
       if (croppedImage) {
-          console.log(croppedImage);
+          setOutputImageSrc(null)
+          //console.log(croppedImage);
           handleSendReplace();
       }
   }, [croppedImage]);
@@ -71,7 +76,23 @@ const handleSendReplace = async () => {
 
     const imgStr = croppedImage.replace(/^data:image\/\w+;base64,/, ''); // Strip data URL prefix
   
-    const payload = { pic: imgStr, item:selectedItem };
+    let payload: any = {
+      pic: imgStr,
+      item: selectedItem,
+    };
+
+    if (boxCoordinates) {
+      const x1 = boxCoordinates.x;
+      const y1 = boxCoordinates.y;
+      const x2 = x1 + boxCoordinates.width;
+      const y2 = y1 + boxCoordinates.height;
+      setError(null)
+      payload = {
+        ...payload,
+        box: [x1, y1, x2, y2],
+      };
+    }   // const payload = { pic: croppedImage, item: selectedItem };
+    console.log(payload);
   
     try {
       setLoading(true);     
@@ -87,7 +108,15 @@ const handleSendReplace = async () => {
         throw new Error(`Failed to send replace image: ${response.statusText}`);
       }
       const data = await response.json();
-      setOutputImageSrc(`data:image/jpeg;base64,${data.output_image}`);
+      if (data.Error) {
+        setError(data.Error);
+        setSrc(null);
+      } else {
+        setError(null);
+        setOutputImageSrc(`data:image/jpeg;base64,${data.output_image}`);
+
+      }
+      
   
       // Handle success
     } catch (error) {
@@ -113,7 +142,7 @@ const handleSendReplace = async () => {
 
   const [image, setImage] = useState(null)
   const[crop, setCrop] = useState({aspect : 1})
- 
+  const [crop2, setCrop2] = useState(null)
 
 
 return (
@@ -127,18 +156,18 @@ return (
         <div>
         {!!src && (
           <ReactCrop
-            key={reactCropKey}
-            onImageLoaded={setImage}
-            crop={crop}
-            onChange={(newCrop) => {
-              setCrop(newCrop);
-              handleImageLoaded(imageRef.current);
-            }}
-            aspect={1 / 1}
-            onComplete={(c) => setCompletedCrop(c)}
-          >
-            <img src={src} ref={imageRef} />
-          </ReactCrop>
+          key={reactCropKey}
+          onImageLoaded={setImage}
+          crop={crop}
+          onChange={(newCrop) => {
+            setCrop(newCrop);
+            handleImageLoaded(imageRef.current);
+          }}
+          aspect={1 / 1}
+          onComplete={(c) => setCompletedCrop(c)}
+        >
+          <img src={src} ref={imageRef} />
+        </ReactCrop>
       
         )}
         {!!completedCrop && (<div>
@@ -164,7 +193,28 @@ return (
             <button onClick={handleReplace}>Replace</button>
           </div>
         )}
-        
+         
+         <div>
+            {!!error && (
+              <div>
+                <h1>{error}</h1>
+                <ReactCrop
+               
+               key={reactCropKey}
+               onImageLoaded={setImage}
+               crop={crop2}
+               onChange={(newCrop) => {
+                 setCrop2(newCrop);
+                 setBoxCoordinates(newCrop.x + ',' + newCrop.y + ',' + newCrop.width + ',' + newCrop.height);
+                 //console.log(boxCoordinates);
+               }}
+         //   onComplete={(c) => setCompletedCrop(c)}
+          >
+            <img src={croppedImage}  />
+          </ReactCrop></div>
+            )}
+          </div>
+                
         
         <div>
           {!!outputImageSrc &&(
