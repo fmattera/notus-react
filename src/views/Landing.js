@@ -5,7 +5,6 @@ import 'react-image-crop/dist/ReactCrop.css';
 import image1 from '../assets/img/component-info-2.png';
 import image2 from '../assets/img/favicon.ico';
 
-import '../assets/styles/Landing.css';
 
 const Landing = () => {
   const [src, setSrc] = useState(null);
@@ -187,7 +186,7 @@ return (
           aspect={1 / 1}
           onComplete={(c) => setCompletedCrop(c)}
         >
-          <img src={src} ref={imageRef} className="object-contain max-h-512 max-w-512" />
+          <img src={src} ref={imageRef} className="object-contain" style={{maxHeight: '512px',maxWidth: '512px',}}/>
         </ReactCrop>
       )}
       {completedCrop && (
@@ -238,7 +237,7 @@ return (
               maxWidth={512}
               maxHeight={512}
             >
-              <img src={croppedImage} className="object-contain max-h-512 max-w-512" />
+              <img src={croppedImage} className="object-contain" style={{maxHeight: '512px',maxWidth: '512px',}}/>
             </ReactCrop>
           </div>
         )}
