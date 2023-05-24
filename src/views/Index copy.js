@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 import IndexNavbar from "components/Navbars/IndexNavbar.js";
 import Footer from "components/Footers/Footer.js";
-import VideoPlayer from "components/VideoPlayer.jsx";
 
 export default function Index() {
   return (
@@ -105,7 +104,7 @@ export default function Index() {
                   <div className="relative flex flex-col mt-4">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-lightbulb"></i>
+                        <i className="fas fa-sitemap"></i>
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
                       Produces marketing images
@@ -118,7 +117,7 @@ export default function Index() {
                   <div className="relative flex flex-col min-w-0">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        <i className="fas fa-sharp fa-solid fa-arrow-trend-up"></i>
+                        <i className="fas fa-drafting-compass"></i>
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">
                       Reduce the entry barrier for SMBs
@@ -133,11 +132,7 @@ export default function Index() {
                   <div className="relative flex flex-col min-w-0 mt-4">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
-                        {/* <i className="fas fa-money-check-dollar"></i>   */}
-                        {/* <i className="fas fa-money-bill-trend-up"></i> */}
-                        <i className="fas fa-solid fa-hand-holding-dollar"></i>
-
-
+                        <i className="fas fa-newspaper"></i>
                       </div>
                       <h6 className="text-xl mb-1 font-semibold">Increase Conversion Rate</h6>
                       <p className="mb-4 text-blueGray-500">
@@ -164,22 +159,6 @@ export default function Index() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col flex-wrap items-center">
-          <div className="w-full px-12 text-center">
-            <h3 className="text-2xl mb-2 font-semibold leading-normal">
-              Watch our demo video!
-            </h3>
-            <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-              See how NeoLocus works and how you can get it!
-            </p>
-          </div>
-          <div className="w-full px-4 mr-auto ml-auto mt-5">
-            <div className="relative flex flex-col min-w-0 w-full mb-6 mt-10 md:mt-0">
-              <VideoPlayer/>
-            </div>
-          </div>
-        </div>
-
 
         <div className="container mx-auto overflow-hidden pb-20">
           <div className="flex flex-wrap items-center">
