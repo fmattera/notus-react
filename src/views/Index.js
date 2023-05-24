@@ -18,7 +18,7 @@ export default function Index() {
                 Your products, <br></br>everywhere
               </h2>
               <p className="mt-4 text-xl leading-relaxed text-blueGray-500">
-              We place your products in any picture, or make a completely new picture with your product!
+              By using Generative AI, we place your products in any picture, or make a completely new picture with your product!
               </p>
               <div className="mt-12">
                 <a
@@ -188,14 +188,15 @@ export default function Index() {
                 <i className="fas fa-sitemap text-xl"></i>
               </div>
               <h3 className="text-3xl mb-2 font-semibold leading-normal">
-                CSS Components
+                Generative AI
               </h3>
               <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
-                Every element that you need in a product comes built in as a
-                component. All components fit perfectly with each other and can
-                have different colours.
+                Powered by Stable Diffusion, we are able to generate high quality pictures
+                of any of your products. Our AI model is trained to replace similar objects 
+                in your input picture with your product, and soon you will be able to generate
+                completely new pictures by using a textprompt! 
               </p>
-              <div className="block pb-6">
+              {/* <div className="block pb-6">
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
                   Buttons
                 </span>
@@ -220,13 +221,13 @@ export default function Index() {
                 <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
                   Typography
                 </span>
-              </div>
+              </div> */}
               <a
-                href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus?ref=nr-index"
-                target="_blank"
+                href="/landing"
+                
                 className="font-bold text-blueGray-700 hover:text-blueGray-500 ease-linear transition-all duration-150"
               >
-                View All{" "}
+                Try it out{" "}
                 <i className="fa fa-angle-double-right ml-1 leading-relaxed"></i>
               </a>
             </div>
@@ -235,17 +236,17 @@ export default function Index() {
               <div className="relative flex flex-col min-w-0 w-full mb-6 mt-48 md:mt-0">
                 <img
                   alt="..."
-                  src={require("assets/img/component-btn.png").default}
+                  src={require("assets/img/vimle-landing.jpg").default}
                   className="w-full align-middle rounded absolute shadow-lg max-w-100-px z-3 left-145-px -top-29-px"
                 />
                 <img
                   alt="..."
-                  src={require("assets/img/component-profile-card.png").default}
+                  src={require("assets/img/vimle-landing-in.jpg").default}
                   className="w-full align-middle rounded-lg absolute shadow-lg -top-160-px left-260-px max-w-210-px"
                 />
                 <img
                   alt="..."
-                  src={require("assets/img/component-info-card.png").default}
+                  src={require("assets/img/up3.jpg").default}
                   className="w-full align-middle rounded-lg absolute shadow-lg max-w-180-px -top-225-px left-40-px z-2"
                 />
                 <img
