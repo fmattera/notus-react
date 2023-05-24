@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
-import image1 from '../assets/img/component-info-2.png';
+
+import image1 from '../assets/img/landskrona-dark_leather-3seat_denoisedv2.jpg';
 import image2 from '../assets/img/favicon.ico';
 
 
@@ -16,6 +17,18 @@ const Landing = () => {
   const imageRef = useRef(null);
   const [boxCoordinates, setBoxCoordinates] = useState(null);
   const [error, setError] = useState(null);
+
+  const items = [
+    { src: image1, value: 'smedstorp-red-3seat_denoisedv2' },
+    { src: image1, value: 'buy' },
+    { src: image1, value: 'tu'  },
+    { src: image1, value: 'tu2' },
+    { src: image1, value: 'tu3' },
+    { src: image1, value: 'tu4' },
+    { src: image1, value: 'tu5' },
+    // Add more items here...
+  ];
+
 
   const handleSave = () => {
     const image = imageRef.current;
@@ -169,7 +182,7 @@ return (
       </div>
     </div>
   </div>
-<div className="container mx-auto my-4">
+<div className="container mx-auto my-1">
 <div className="flex justify-center">
   <div className="p-8 bg-gray-200 rounded-lg shadow-lg lg:w-5/12 border-4 border-gray-400">
     
@@ -189,31 +202,41 @@ return (
           <img src={src} ref={imageRef} className="object-contain" style={{maxHeight: '512px',maxWidth: '512px',}}/>
         </ReactCrop>
       )}
-      {completedCrop && (
-        <div className="mt-4">
-          <select
-            value={selectedItem}
-            onChange={handleSelectedItemChange}
-            className="py-2 px-4 rounded text-black bg-gray-100 w-full"
-          >
-            <option value="">Select an item</option>
-            <option value="smedstorp-red-3seat_denoisedv2">
-              Smedstorp red
-            </option>
-            <option value="ekanaset-green-3seat-green_denoisedv2">
-              Ekanaset green
-            </option>
-            {/* Rest of the options */}
-          </select>
-          <button
-            onClick={handleReplace}
-            className="mt-4 py-2 px-4 bg-blue-500 text-white rounded block w-full"
-          >
-            Replace
-          </button>
-        </div>
-      )}
+    </div>
+  </div>
+</div>
 
+<div className="mt-4">
+  {completedCrop && (
+    <div className="flex justify-center mt-4">
+      <div className="flex space-x-4 overflow-x-auto p-4 rounded shadow-lg bg-white" style={{ width: 'fit-content' }}>
+        {items.map((item) => (
+          <img
+            key={item.value}
+            src={item.src}
+            alt={item.value}
+            onClick={() => setSelectedItem(item.value)}
+            className={`h-18 w-18 object-cover cursor-pointer `}
+            style={{ width: selectedItem === item.value ? '70%' : '250px', height: selectedItem === item.value ? '70%' : '250px' }} 
+          />
+        ))}
+      </div>
+    </div>
+  )}
+</div>
+
+
+</div>
+    {completedCrop && (
+          <div className="mt-4">
+            <button
+              onClick={handleReplace}
+              className="mt-4 py-2 px-4 bg-blue-700 text-white rounded block w-full"
+            >
+              Replace
+            </button>
+          </div>
+        )}
       <div>
         {!!error && (
           <div>
@@ -253,10 +276,7 @@ return (
         )}
       </div>
     </div>
-  </div>
-</div>
-</div>
-</div>
+   
 
 );
 };
