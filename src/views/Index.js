@@ -7,8 +7,8 @@ import Footer from "components/Footers/Footer.js";
 
 import Hero from "components/LandingPage/Hero.js";
 import Features from "components/LandingPage/Features.js";
-import Example from "components/LandingPage/Example.js";
-import SignupForm from "components/LandingPage/SignupForm";
+import SignupForm from "components/LandingPage/SingupForm";
+import FooterLanding from "components/LandingPage/FooterLanding";
 
 export default function Index() {
   return (
@@ -18,8 +18,8 @@ export default function Index() {
       <Hero />
       <Features />
       <div className="h-16 mt-50"></div>
-      <Example />
       <SignupForm />
+      <FooterLanding/>
       <Footer />
       
     </>

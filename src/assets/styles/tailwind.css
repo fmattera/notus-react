@@ -415,10 +415,12 @@ input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
   color: #a1a1aa;
 }
 
+
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
   color: #a1a1aa;
+  font-size: 14px;
 }
 
 button,
@@ -2133,6 +2135,7 @@ select {
 .pointer-events-none {
   pointer-events: none;
 }
+
 
 .fixed {
   position: fixed;
