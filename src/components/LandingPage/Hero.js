@@ -39,7 +39,7 @@ const Hero= () => {
 
         <img
           className="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860px"
-          src={require("assets/img/pattern_react.png").default}
+          src={require("assets/img/landing_hero.png").default}
           alt="..."
         />
       </section>
