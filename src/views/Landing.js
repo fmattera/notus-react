@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
-
+import IndexNavbar from 'components/Navbars/IndexNavbar.js';
 
 import image1 from '../assets/img/landskrona-dark_leather-3seat_denoisedv2.jpg';
 import image2 from '../assets/img/favicon.ico';
@@ -153,7 +153,10 @@ const Landing = () => {
 
 
 return (
+ <>
+<IndexNavbar fixed />
 <div className="w-screen h-screen text-white" style={{
+  
   background: "linear-gradient(90deg, rgba(58, 131, 180, 1) 24%, rgba(102, 153, 255, 1) 58%, rgba(144, 190, 212, 1) 100%)"
 }}>
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
@@ -276,7 +279,7 @@ return (
         )}
       </div>
     </div>
-   
+    </>
 
 );
 };
