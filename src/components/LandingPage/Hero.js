@@ -4,15 +4,17 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <section
-      className="header-section relative pt-32 pb-16 items-center flex"
-      style={{
-        backgroundImage: `url(${require("assets/vids/demo.gif").default})`,
-        backgroundSize: "cover",
-        minHeight: "100vh",
-        position: "relative", // Add this
-      }}
-    >
-      <div className="container mx-auto items-center flex flex-wrap" style={{position: "absolute", bottom: "5%", left: "5%"}}>
+    className="header-section relative pt-32 pb-16 items-center flex"
+    style={{
+      backgroundImage: `url(${require("assets/vids/demo.gif").default})`,
+      backgroundPosition: 'center', 
+      backgroundSize: 'contain', 
+      backgroundRepeat: 'no-repeat',
+      minHeight: '100vh',
+      position: 'relative',
+    }}
+  >
+      <div className="container mx-auto items-center flex flex-wrap" style={{position: "absolute", bottom: "5%", left: "35%"}}>
         <div className="w-full md:w-8/12 lg:w-6/12 xl:w-6/12 px-4">
           <div className="pt-4 sm:pt-0">
             {/* <h2 className="font-semibold text-5xl text-blueGray-600 mb-8">

@@ -14,7 +14,7 @@ const SignupForm = () => {
       <h3 className="text-3xl mb-2 font-semibold leading-normal text-white">
         Let's stay in touch!
       </h3>
-      <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-400">
+      {/* <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-400">
         Since{" "}
         <a
           href="https://tailwindcss.com/?ref=creativetim"
@@ -27,7 +27,7 @@ const SignupForm = () => {
       </p>
       <p className="text-lg font-light leading-relaxed mt-0 mb-4 text-blueGray-400">
         Fill in the form below and we will get in touch!
-      </p>
+      </p> */}
 
   
     {/* <div class="relative flex w-full flex-wrap items-stretch mb-3">

@@ -1,6 +1,8 @@
 const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
 
+
+
 module.exports = {
   purge: {
     enabled: true,
@@ -23,6 +25,10 @@ module.exports = {
       ...colors,
     },
     extend: {
+
+      fontFamily: {
+        'monstserrat-alt': ["'Montserrat Alternates'", 'sans-serif']
+      },
       minHeight: {
         "screen-75": "75vh",
       },
@@ -81,6 +87,9 @@ module.exports = {
       },
     },
   },
+  backgroundImage: (theme) => ({
+    'diagonal-gradient': 'linear-gradient(to bottom right, #2c519a, #65427a, #9e335a, #d7253a)'
+  }),
   variants: [
     "responsive",
     "group-hover",
