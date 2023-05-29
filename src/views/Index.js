@@ -12,6 +12,7 @@ import FooterLanding from "components/LandingPage/FooterLanding";
 
 export default function Index() {
   return (
+    //he;;po
     <>
       <IndexNavbar fixed />
      
