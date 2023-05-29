@@ -92,12 +92,32 @@ function UploadForm() {
         </form>
         </div>
         <img
-          className="absolute top-0 b-auto right-0 pt-16 sm:w-6/12 -mt-48 sm:mt-0 w-10/12 max-h-860px"
-          src={require("assets/img/pattern_react.png").default}
+          className="absolute top-80px right-0"
+          src={require("assets/img/8pics_2_1.png").default}
           alt="..."
+          style={{ 
+            position: 'relative', 
+            width: '45%', /* Set this to 60% to make it 40% smaller */
+            height: 'auto',
+            padding: '60px', /* This will add a padding around the image */
+            backgroundColor: 'white', /* This will make the padding color white */
+          }}
         />
-
     </section>
+    <section className="" >
+        <div className="text-center text-grey font-poppins">
+          <p>
+            Here on the right you can see an example set of images that produces great results.
+          </p>
+          <p>
+            The more diverse the angles and backgrounds, the better.
+          </p>
+        </div>
+    </section>
+
+
+
+
     </>
   );
 }
