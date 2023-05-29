@@ -7,9 +7,10 @@
   "engines": {
     "node": "18.x"
   },
+
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
-    "@fortawesome/fontawesome-free": "^6.4.0",
     "@popperjs/core": "2.9.1",
     "@tailwindcss/forms": "0.2.1",
     "autoprefixer": "10.2.5",
@@ -35,7 +36,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "unset NODE_OPTIONS && export NODE_OPTIONS=--openssl-legacy-provider && rm -rf node_modules/ && rm -rf package-lock.json && npm install --legacy-peer-deps && npm run tailwind build src/assets/styles/index.css -o src/assets/styles/tailwind.css",
+    "build": "unset NODE_OPTIONS && export NODE_OPTIONS=--openssl-legacy-provider && npm start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "install:clean": "rm -rf node_modules/ && rm -rf package-lock.json && npm install && npm run build:tailwind && npm start",
