@@ -154,14 +154,14 @@ const Landing = () => {
 
 return (
  <>
-  <IndexNavbar fixed />
+<IndexNavbar fixed />
 <div className="w-screen h-screen text-white" style={{
   
   background: "linear-gradient(90deg, rgba(58, 131, 180, 1) 24%, rgba(102, 153, 255, 1) 58%, rgba(144, 190, 212, 1) 100%)"
 }}>
   <div class="container mx-auto flex px-5 py-24 items-center justify-center flex-col">
 
-    <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-4 object-cover object-center rounded-full" alt="hero" src={image2} />
+    <img class="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded-full" alt="hero" src={image2} />
     <div class="text-center w-full">
       <h1 className="my-4 text-5xl font-bold leading-tight">
         See your products in any environment
@@ -177,11 +177,12 @@ return (
         className="py-2 px-4 bg-white rounded"
       />
     </div>
-    <div className="flex justify-center mx-auto space-x-8 mt-10">
-      <button className="hover:underline bg-transparent hover:bg-black text-white hover:text-black font-semibold py-2 px-4 border border-black hover:border-transparent rounded-full">
-        View Gallery
-      </button>
-    </div>
+      <div className="flex justify-center mx-auto space-x-8 mt-10">
+        <button
+          className="hover:underline bg-transparent hover:bg-purple-500 text-purple-700 font-semibold hover:text-white py-2 px-4 border border-purple-500 hover:border-transparent rounded-full">
+          View Gallery
+        </button>
+      </div>
     </div>
   </div>
 <div className="container mx-auto my-1">
@@ -208,10 +209,10 @@ return (
   </div>
 </div>
 
-<div >
+<div className="mt-4">
   {completedCrop && (
-    <div className="flex justify-center ">
-      <div className="flex  overflow-x-auto rounded shadow-lg bg-white" style={{ width: 'fit-content' }}>
+    <div className="flex justify-center mt-4">
+      <div className="flex space-x-4 overflow-x-auto p-4 rounded shadow-lg bg-white" style={{ width: 'fit-content' }}>
         {items.map((item) => (
           <img
             key={item.value}
@@ -229,19 +230,17 @@ return (
 
 
 </div>
-<div className="container mx-auto my-1">
     {completedCrop && (
           <div className="mt-4">
-          <button
-            onClick={handleReplace}
-            className="mt-4 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded block w-full"
-          >
-            Replace
-          </button>
-        </div>
+            <button
+              onClick={handleReplace}
+              className="mt-4 py-2 px-4 bg-blue-700 text-white rounded block w-full"
+            >
+              Replace
+            </button>
+          </div>
         )}
-      </div>
-      <div className="container mx-auto my-1">
+      <div>
         {!!error && (
           <div>
             <h1 className="text-red-500">{error}</h1>
@@ -270,9 +269,7 @@ return (
         )}
       </div>
 
-      <div className="flex justify-center">
-        <div className="p-8 bg-gray-200 rounded-lg shadow-lg lg:w-5/12 border-4 border-gray-400">
-      
+      <div>
         {!!outputImageSrc && (
           <img src={outputImageSrc} alt="Output" className="object-contain h-64 w-full mt-4" />
         )}
@@ -281,7 +278,6 @@ return (
           <img src="load.gif" alt="Loading" className="object-contain h-64 w-full mt-4" />
         )}
       </div>
-    </div>
     </div>
     </>
 
