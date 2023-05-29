@@ -4,7 +4,7 @@ import 'react-image-crop/dist/ReactCrop.css';
 import IndexNavbar from 'components/Navbars/IndexNavbar.js';
 import DemoFunctionality from 'components/DemoComponents/DemoFunctionality';
 import DemoHero from 'components/DemoComponents/DemoHero';
-
+import Footer from 'components/Footers/Footer.js';
 
 const Landing = () => {
   return (  
@@ -12,6 +12,7 @@ const Landing = () => {
     <div>
       <DemoHero/>
       <DemoFunctionality/>
+      <Footer/>
     </div>
     
     
