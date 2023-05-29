@@ -1,6 +1,7 @@
 import AWS from 'aws-sdk';
 import React, { useState } from 'react';
 import IndexNavbar from 'components/Navbars/IndexNavbar.js';
+import Footer from "components/Footers/Footer.js";
 
 const s3 = new AWS.S3({
   region: 'us-east-1',
@@ -105,16 +106,22 @@ function UploadForm() {
         />
     </section>
     <section className="" >
-        <div className="text-center text-grey font-poppins">
-          <p>
-            Here on the right you can see an example set of images that produces great results.
+    <div className="text-center text-black text-2xl font-poppins">
+        <p>
+          Get a demo with your own product, all we need is 8-12 pictures!
+        </p>
+      </div>
+        <div className="text-center text-grey font-poppins mt-4">
+          
+          <p className="text-sm">
+            The example set of images shown here produces great results.
           </p>
-          <p>
+          <p className="text-sm">
             The more diverse the angles and backgrounds, the better.
           </p>
         </div>
     </section>
-
+    <Footer />
 
 
 
