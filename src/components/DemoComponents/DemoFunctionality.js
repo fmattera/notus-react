@@ -84,6 +84,8 @@ const DemoFunctionality = () => {
   };
 
   const handleReplace = async () => {
+
+    setOutputImageSrc(null); // Set outputImageSrc to null
     if (!boxCoordinates) {
       console.log("no box")
       setCroppedImage(null); // Set croppedImage to null
@@ -93,6 +95,7 @@ const DemoFunctionality = () => {
     else{
       handleSendReplace(); // Call handleSendReplace function if boxCoordinates exist
     }
+
   };
   
 
@@ -178,7 +181,6 @@ const DemoFunctionality = () => {
     setBoxCoordinates(null);
   };
 
-  const [image, setImage] = useState(null);
   const [crop, setCrop] = useState({
     unit: '%',
     x: 25,
@@ -307,16 +309,16 @@ const DemoFunctionality = () => {
       <div className="flex justify-center">
        
       {!!outputImageSrc && (
-          <div className="p-8 bg-gray-200 rounded-lg shadow-lg lg:w-5/12 border-4 border-gray-400 mt-4">
-            <img src={outputImageSrc} alt="Output" className="object-contain " />
-          </div>
-        )}
+        <div style={{ display: 'inline-block' }} className="p-8 bg-gray-200 rounded-lg shadow-lg border-4 border-gray-400 mt-4">
+          <img src={outputImageSrc} alt="Output" style={{ width: 'auto', height: 'auto' }} />
+        </div>
+      )}
         {!!error && (
-         
-         <div className="p-8 bg-gray-200 rounded-lg shadow-lg lg:w-5/12 border-4 border-gray-400 mt-4">
-            <p>
-              We did not find a couch to replace in your picture. Please show us where to place the couch!
-              </p>
+          <div className="p-8 bg-gray-200 rounded-lg shadow-lg border-4 border-gray-400 mt-4" 
+              style={{ width: '512px', maxWidth: '512px' }}>
+            <p className="text-sm" style={{ wordWrap: 'break-word' }}>
+              We did not find a couch to replace in your picture. Crop the image again, locating where you'd like to see the couch.
+            </p>
             <ReactCrop
               crop={crop2}
               onChange={(cropCrop) => {
@@ -326,22 +328,16 @@ const DemoFunctionality = () => {
                   setBoxCoordinates([cropCrop.x, cropCrop.y, cropCrop.width, cropCrop.height]);
                 }
                 console.log(boxCoordinates)
-              }}
- 
-              >
-                <img
-                  src={croppedImage}
-                  alt='Draw the space where the couch should be'
-                  className="object-contain"
-                  style={{ maxHeight: '512px', maxWidth: '512px' }}
-                  />
-              </ReactCrop>
-
-            </div>
-            
-           
-
+              }}>
+              <img
+                src={croppedImage}
+                alt='Draw the space where the couch should be'
+                style={{ width: '512px', height: '512px', objectFit: 'contain' }}
+              />
+            </ReactCrop>
+          </div>
         )}
+
 
 
           {!!loading && (
