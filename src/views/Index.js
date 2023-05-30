@@ -21,6 +21,7 @@ export default function Index() {
       <Features />
       <div className="h-16 mt-50"></div>
       <SignupForm />
+      <Footer/>
       {/* <FooterLanding/>
       <Footer /> */}
       
