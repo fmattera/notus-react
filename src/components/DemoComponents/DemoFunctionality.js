@@ -318,7 +318,13 @@ const DemoFunctionality = () => {
         <div>
           <div className="p-8 bg-gray-200 rounded-lg shadow-lg border-4 border-gray-400 mt-4" style={{ width: '512px', maxWidth: '512px' }}>
             <p className="text-sm" style={{ wordWrap: 'break-word' }}>
-              We did not find a couch to replace in your picture. Crop the image again, locating where you'd like to see the couch.
+              We did not find any couch in your picture. 
+            </p>
+            <p className="text-sm" style={{ wordWrap: 'break-word' }}>
+            Crop it again, locating where you'd like to see the couch. 
+            </p>
+            <p className="text-sm" style={{ wordWrap: 'break-word' }}>
+            Then, click on 'Add a couch'.
             </p>
             <ReactCrop
               crop={crop2}
