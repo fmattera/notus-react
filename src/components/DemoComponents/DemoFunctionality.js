@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
-import {Crop} from 'react-image-crop';
 
 import { FaQuestionCircle } from 'react-icons/fa';
 import ekenasetGreen from 'assets/img/item_pictures/ekenaset-green.png';
@@ -87,14 +86,15 @@ const DemoFunctionality = () => {
   const handleReplace = async () => {
     if (!boxCoordinates) {
       console.log("no box")
+      setCroppedImage(null); // Set croppedImage to null
       const croppedImageDataUrl = await handleSave();
       setCroppedImage(croppedImageDataUrl);
-      
     } 
     else{
       handleSendReplace(); // Call handleSendReplace function if boxCoordinates exist
     }
   };
+  
 
   useEffect(() => {
     if (croppedImage) {
