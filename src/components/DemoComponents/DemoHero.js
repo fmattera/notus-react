@@ -1,14 +1,14 @@
 import React from "react";
 // components
 
-import Navbar from "components/Navbars/AuthNavbar.js";
+import IndexNavbar from "components/Navbars/IndexNavbar.js";
 
 const DemoHero = () => {
   return (
    <>
-      <Navbar transparent />
+      <IndexNavbar transparent={true} />
       <main>
-        <div className="relative pt-16 pb-32 flex content-center items-center justify-center min-h-screen-75">
+        <div className="relative pt-16 pb-32 mt-6 flex content-center items-center justify-center min-h-screen-75">
           <div
             className="absolute top-0 w-full h-full bg-center bg-cover"
             style={{
@@ -26,7 +26,7 @@ const DemoHero = () => {
               <div className="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
                 <div className="pr-12">
                   <h1 className="text-white font-semibold text-5xl">
-                    See our products in your own living room!
+                    Try NeoLocus today!
                   </h1>
                   
                 </div>

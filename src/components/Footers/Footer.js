@@ -64,7 +64,7 @@ export default function Footer() {
                 </a>
                 
                 <a
-                  href="https://www.instagram.com/neolocustech/"
+                  href="https://www.instagram.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
