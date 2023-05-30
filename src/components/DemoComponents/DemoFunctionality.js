@@ -1,31 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
-import IndexNavbar from 'components/Navbars/IndexNavbar.js';
-import { FileUploader } from "baseui/file-uploader";
+import {Crop} from 'react-image-crop';
+
 import { FaQuestionCircle } from 'react-icons/fa';
-import asarum from 'assets/img/item_pictures/asarum.png';
-import ekanasetBeige from 'assets/img/item_pictures/ekanaset-beige.png';
 import ekenasetGreen from 'assets/img/item_pictures/ekenaset-green.png';
 import essebodaBlue from 'assets/img/item_pictures/esseboda-blue.png';
 import fammarpBeige from 'assets/img/item_pictures/fammarp-beige.png';
 import glostad2SeatSofa from 'assets/img/item_pictures/glostad-2-seat-sofa-knisa-dark-grey__0950864_pe800736_s5 Background Removed.png';
-import kivik3SeatSofaKelingeGreyTurquoise from 'assets/img/item_pictures/kivik-3-seat-sofa-kelinge-grey-turquoise__1055806_pe848110_s5 Background Removed.png';
 import kivik3SeatSofaTallmyraWhiteBlack from 'assets/img/item_pictures/kivik-3-seat-sofa-tallmyra-white-black__0781544_pe760855_s5 Background Removed.png';
-import kivik3SeatSofaWithChaiseLongueKelingeGreyTurquoise from 'assets/img/item_pictures/kivik-3-seat-sofa-with-chaise-longue-kelinge-grey-turquoise__1055847_pe848125_s5 Background Removed.png';
-import klippan2SeatSofaVissleGrey from 'assets/img/item_pictures/klippan-2-seat-sofa-vissle-grey__0239990_pe379591_s5 Background Removed.png';
-import landskrona3SeatSofaGunnaredDarkGreyMetal from 'assets/img/item_pictures/landskrona-3-seat-sofa-gunnared-dark-grey-metal__0602115_pe680184_s5 Background Removed.png';
 import landskronaThreeSeatSofaGrannBomstadBlackMetal from 'assets/img/item_pictures/landskrona-three-seat-sofa-grann-bomstad-black-metal__0321002_pe514786_s5 Background Removed.png';
 import langaryd3SeatSofaLejdeLightGreyWood from 'assets/img/item_pictures/langaryd-3-seat-sofa-lejde-light-grey-wood__0992758_pe820227_s5 Background Removed.png';
-import linanas2SeatSofaVissleDarkGrey from 'assets/img/item_pictures/linanas-2-seat-sofa-vissle-dark-grey__0962404_pe808061_s5 Background Removed.png';
-import lyckseleHavet2SeatSofaBedVansbroDarkGrey from 'assets/img/item_pictures/lycksele-havet-2-seat-sofa-bed-vansbro-dark-grey__0949727_pe799964_s5 Background Removed.png';
-import napper from 'assets/img/item_pictures/napper.jpg';
-import parup3SeatSofaVissleDarkGreen from 'assets/img/item_pictures/parup-3-seat-sofa-vissle-dark-green__1041906_pe841186_s5 Background Removed.png';
 import smedstorp2SeatSofaLejdeRedBrownBlack from 'assets/img/item_pictures/smedstorp-2-seat-sofa-lejde-red-brown-black__0989821_pe818623_s5 Background Removed.png';
-import soderhamn4SeatSofaWithChaiseLongueGunnaredBeige from 'assets/img/item_pictures/soderhamn-4-seat-sofa-with-chaise-longue-gunnared-beige__0766708_pe753869_s5 Background Removed.png';
-import vimle2SeatSofaGrannBomstadBlack from 'assets/img/item_pictures/vimle-2-seat-sofa-grann-bomstad-black__0817321_pe773961_s5 Background Removed.png';
-import vimle2SeatSofaHallarpGrey from 'assets/img/item_pictures/vimle-2-seat-sofa-hallarp-grey__0949417_pe799719_s5 Background Removed.png';
-import viskafors3SeatSofaHogalidBrownBirch from 'assets/img/item_pictures/viskafors-3-seat-sofa-hogalid-brown-birch__1088056_pe861031_s5 Background Removed.png';
+import vimleWhite from 'assets/img/item_pictures/GEIK0073-1 Background Removed.png';
 
 //import image2 from './favicon.ico';
 
@@ -51,85 +38,105 @@ const DemoFunctionality = () => {
     { src: landskronaThreeSeatSofaGrannBomstadBlackMetal, value: 'landskrona-dark_leather-3seat_denoisedv2' },
     { src: langaryd3SeatSofaLejdeLightGreyWood, value: 'langaryd-grey-3seat_denoisedv2' },
     { src: smedstorp2SeatSofaLejdeRedBrownBlack, value: 'smedstorp-red-3seat_denoisedv2' },
-    { src: vimle2SeatSofaGrannBomstadBlack, value: 'smedstorp-red-3seat_denoisedv2' },
+    { src: vimleWhite, value: 'vimle-white-denoisedv2' },
    ];
   
 
 
-  const handleSave = () => {
-    const image = imageRef.current;
-
-    const canvas = document.createElement('canvas');
-    const scaleX = image.naturalWidth / image.width;
-    const scaleY = image.naturalHeight / image.height;
-    const { width, height, x, y } = completedCrop;
-
-    canvas.width = width;
-    canvas.height = height;
-    const ctx = canvas.getContext('2d');
-
-    ctx.drawImage(
-      image,
-      x * scaleX,
-      y * scaleY,
-      width * scaleX,
-      height * scaleY,
-      0,
-      0,
-      width,
-      height
-    );
-
-    const croppedImageDataUrl = canvas.toDataURL('image/jpeg');
-    setCroppedImage(croppedImageDataUrl);
-  };
-
-  const handleSelectedItemChange = (event) => {
-    setSelectedItem(event.target.value);
-  };
+   
 
   const handleImageLoaded = (image) => {
     imageRef.current = image;
   };
 
-  const handleReplace = () => {
+  const handleSave = () => {
+    return new Promise((resolve, reject) => {
+      try {
+        const image = imageRef.current;
+        console.log(image)
+        const canvas = document.createElement('canvas');
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        const { width, height, x, y } = completedCrop;
+  
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+  
+        ctx.drawImage(
+          image,
+          x * scaleX,
+          y * scaleY,
+          width * scaleX,
+          height * scaleY,
+          0,
+          0,
+          width,
+          height
+        );
+  
+        const croppedImageDataUrl = canvas.toDataURL('image/jpeg');
+        
+        resolve(croppedImageDataUrl); // Resolve with the data URL
+      } catch (error) {
+        reject(error);
+      }
+    });
+  };
+
+  const handleReplace = async () => {
     if (!boxCoordinates) {
-      handleSave();
+      console.log("no box")
+      const croppedImageDataUrl = await handleSave();
+      setCroppedImage(croppedImageDataUrl);
+      
+    } 
+    else{
+      handleSendReplace(); // Call handleSendReplace function if boxCoordinates exist
     }
   };
 
-  const reactCropKey = completedCrop
-    ? `${completedCrop.width}-${completedCrop.height}`
-    : '';
-
   useEffect(() => {
     if (croppedImage) {
-      setOutputImageSrc(null);
       handleSendReplace();
     }
   }, [croppedImage]);
+  
+
+  // const reactCropKey = completedCrop
+  //   ? `${completedCrop.width}-${completedCrop.height}`
+  //   : '';
+
+  // useEffect(() => {
+  //   if (croppedImage) {
+  //     setOutputImageSrc(null);
+  //     handleSendReplace();
+  //   }
+  // }, [croppedImage]);
 
   const handleSendReplace = async () => {
+    console.log(croppedImage)
     const imgStr = croppedImage.replace(/^data:image\/\w+;base64,/, '');
-
+  
     let payload = {
       pic: imgStr,
       item: selectedItem,
     };
-
+    console.log(boxCoordinates)
     if (boxCoordinates) {
-      const x1 = boxCoordinates.x;
-      const y1 = boxCoordinates.y;
-      const x2 = x1 + boxCoordinates.width;
-      const y2 = y1 + boxCoordinates.height;
+      const [x1, y1, width, height] = boxCoordinates;
+      const x2 = x1 + width;
+      const y2 = y1 + height;
       setError(null);
       payload = {
         ...payload,
         box: [x1, y1, x2, y2],
       };
     }
-
+    console.log(payload)
+  
     try {
+      setSrc(null);
       setLoading(true);
       const response = await fetch('https://neolocus.xyz/endpoint_replace', {
         method: 'POST',
@@ -144,9 +151,9 @@ const DemoFunctionality = () => {
         );
       }
       const data = await response.json();
+      console.log(data)
       if (data.Error) {
         setError(data.Error);
-        setSrc(null);
       } else {
         setError(null);
         setOutputImageSrc(`data:image/jpeg;base64,${data.output_image}`);
@@ -157,7 +164,7 @@ const DemoFunctionality = () => {
       setLoading(false);
     }
   };
-
+  
   const onSelectFile = (e) => {
     if (e.target.files && e.target.files.length > 0) {
       setCrop(undefined);
@@ -168,10 +175,19 @@ const DemoFunctionality = () => {
       reader.readAsDataURL(e.target.files[0]);
     }
     setOutputImageSrc(null);
+    setBoxCoordinates(null);
   };
 
   const [image, setImage] = useState(null);
-  const [crop, setCrop] = useState({ aspect: 1 });
+  const [crop, setCrop] = useState({
+    unit: '%',
+    x: 25,
+    y: 25,
+    width: 50,
+    height: 50,
+    aspect: 1/1
+    });
+  
   const [crop2, setCrop2] = useState(null);
 
 
@@ -199,6 +215,7 @@ const DemoFunctionality = () => {
           </div>
         </div>
       {src && (
+         
         <div className="container mx-auto my-1">
           <div className="flex justify-center">
 
@@ -221,24 +238,30 @@ const DemoFunctionality = () => {
               
               
                 
-                <ReactCrop
-                  key={reactCropKey}
-                  onImageLoaded={setImage}
-                  crop={crop}
-                  onChange={(newCrop) => {
-                    setCrop(newCrop);
-                    handleImageLoaded(imageRef.current);
-                  }}
-                  aspect={1 / 1}
-                  onComplete={(c) => setCompletedCrop(c)}
-                >
-                  <img
-                    src={src}
-                    ref={imageRef}
-                    className="object-contain"
-                    style={{ maxHeight: '512px', maxWidth: '512px' }}
-                  />
-                </ReactCrop>
+            <ReactCrop
+             
+              crop={crop}
+              onChange={(newCrop) => {
+                setCrop(newCrop);
+                handleImageLoaded(imageRef.current);
+              }}
+              onComplete={setCompletedCrop}
+              
+              aspect={1}
+              width={100}
+              height={100}
+              x={100}
+              y={100}
+
+            >
+              <img
+                src={src}
+                ref={imageRef}
+                alt="Crop"
+                className="object-contain"
+                style={{ maxHeight: '512px', maxWidth: '512px' }}
+              />
+            </ReactCrop>
               
             </div>
           </div>
@@ -275,22 +298,57 @@ const DemoFunctionality = () => {
       <div className="container mx-auto my-1">
         {completedCrop && (
           <div className="mt-4">
-            <button onClick={handleReplace} className="mt-4 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded block w-full">
+            <button onClick={handleReplace} className="mt-4 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded block mx-auto">
               Replace
             </button>
           </div>
         )}
       </div>
       <div className="flex justify-center">
-        <div className="p-8 bg-gray-200 rounded-lg shadow-lg lg:w-5/12 border-4 border-gray-400">
-          {!!outputImageSrc && (
-            <img src={outputImageSrc} alt="Output" className="object-contain h-64 w-full mt-4" />
-          )}
+       
+      {!!outputImageSrc && (
+          <div className="p-8 bg-gray-200 rounded-lg shadow-lg lg:w-5/12 border-4 border-gray-400 mt-4">
+            <img src={outputImageSrc} alt="Output" className="object-contain " />
+          </div>
+        )}
+        {!!error && (
+         
+         <div className="p-8 bg-gray-200 rounded-lg shadow-lg lg:w-5/12 border-4 border-gray-400 mt-4">
+            <p>
+              We did not find a couch to replace in your picture. Please show us where to place the couch!
+              </p>
+            <ReactCrop
+              crop={crop2}
+              onChange={(cropCrop) => {
+                console.log(cropCrop)
+                setCrop2(cropCrop);
+                if (cropCrop && !isNaN(cropCrop.x) && !isNaN(cropCrop.y) && !isNaN(cropCrop.width) && !isNaN(cropCrop.height)) {
+                  setBoxCoordinates([cropCrop.x, cropCrop.y, cropCrop.width, cropCrop.height]);
+                }
+                console.log(boxCoordinates)
+              }}
+ 
+              >
+                <img
+                  src={croppedImage}
+                  alt='Draw the space where the couch should be'
+                  className="object-contain"
+                  style={{ maxHeight: '512px', maxWidth: '512px' }}
+                  />
+              </ReactCrop>
+
+            </div>
+            
+           
+
+        )}
+
+
           {!!loading && (
             <img src="load.gif" alt="Loading" className="object-contain h-64 w-full mt-4" />
           )}
         </div>
-      </div>
+      
   
     </> );
 };  

@@ -120,7 +120,7 @@ const DemoFunctionality = () => {
       const data = await response.json();
       if (data.Error) {
         setError(data.Error);
-        setSrc(null);
+        
       } else {
         setError(null);
         setOutputImageSrc(`data:image/jpeg;base64,${data.output_image}`);
