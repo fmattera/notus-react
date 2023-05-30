@@ -275,18 +275,18 @@ const DemoFunctionality = () => {
         {completedCrop && (
           <div className="container mx-auto my-1">
             <div className="mt-4">
-              <div className="max-w-3xl mx-auto overflow-y-auto rounded shadow-lg bg-white" style={{ maxHeight: '300px' }}>
-                <div className="flex justify-center" style={{ width: 'fit-content' }}>
-                  {items.map((item) => (
-                    <img
-                      key={item.value}
-                      src={item.src}
-                      alt={item.value}
-                      onClick={() => setSelectedItem(item.value)}
-                      className={`h-18 w-18 object-cover cursor-pointer`}
-                      style={{ width: selectedItem === item.value ? '120px' : '150px', height: selectedItem === item.value ? '120px' : '150px' }}
-                    />
-                  ))}
+              <div className="max-w-3xl mx-auto overflow-x-auto rounded shadow-lg bg-white px-8" style={{ maxHeight: '300px' }}>
+                <div className="flex justify-start" style={{ width: 'fit-content' }}>
+                    {items.map((item) => (
+                        <img
+                            key={item.value}
+                            src={item.src}
+                            alt={item.value}
+                            onClick={() => setSelectedItem(item.value)}
+                            className={`h-18 w-18 object-cover cursor-pointer`}
+                            style={{ width: selectedItem === item.value ? '120px' : '150px', height: selectedItem === item.value ? '120px' : '150px' }}
+                        />
+                    ))}
                 </div>
               </div>
             </div>
