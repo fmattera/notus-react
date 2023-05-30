@@ -13,20 +13,16 @@ import Auth from "layouts/Auth.js";
 // views without layouts
 
 import Upload from "views/Upload.js";
-import Landing from "views/Landing.js";
-import Profile from "views/Profile.js";
+import Demo from "views/Demo.js";
 import Index from "views/Index.js";
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       {/* add routes with layouts */}
-      <Route path="/admin" component={Admin} />
-      <Route path="/auth" component={Auth} />
       {/* add routes without layouts */}
       <Route path="/upload" exact component={Upload} />
-      <Route path="/landing" exact component={Landing} />
-      <Route path="/profile" exact component={Profile} />
+      <Route path="/demo" exact component={Demo} />
       <Route path="/" exact component={Index} />
       {/* add redirect for first page */}
       <Redirect from="*" to="/" />

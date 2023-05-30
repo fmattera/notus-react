@@ -6,7 +6,7 @@ import DemoFunctionality from 'components/DemoComponents/DemoFunctionality';
 import DemoHero from 'components/DemoComponents/DemoHero';
 import Footer from 'components/Footers/Footer.js';
 
-const Landing = () => {
+const Demo = () => {
   return (  
     <>
     <div>
@@ -19,4 +19,4 @@ const Landing = () => {
     </>
   );
 };
-export default Landing;
+export default Demo;

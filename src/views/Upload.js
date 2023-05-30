@@ -106,7 +106,7 @@ function UploadForm() {
         />
     </section>
     <section className="" >
-    <div className="text-center text-black text-2xl font-poppins">
+    <div className="text-center text-black mt-6 text-2xl font-poppins">
         <p>
           Get a demo with your own product, all we need is 8-12 pictures!
         </p>
