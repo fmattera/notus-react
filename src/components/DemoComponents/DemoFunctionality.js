@@ -136,7 +136,7 @@ const DemoFunctionality = () => {
     console.log(payload)
   
     try {
-      setSrc(null);
+      
       setLoading(true);
       const response = await fetch('https://neolocus.xyz/endpoint_replace', {
         method: 'POST',
