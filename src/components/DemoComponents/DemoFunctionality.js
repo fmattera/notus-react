@@ -135,6 +135,7 @@ const DemoFunctionality = () => {
         ...payload,
         box: [x1, y1, x2, y2],
       };
+      setBoxCoordinates(null);
     }
     console.log(payload)
   
@@ -233,7 +234,7 @@ const DemoFunctionality = () => {
           
             {showPopover && (
               <div className="mr-10 bg-white border border-gray-400 rounded-lg p-4">
-                <p>Please make the image square.</p>
+                <p>Please crop your image to a square, in order to start the NeoLocus engine.</p>
               </div>
             )}
             <div>
@@ -298,7 +299,7 @@ const DemoFunctionality = () => {
 
       </div>
       <div className="container mx-auto my-1">
-        {completedCrop && (
+        {!error && completedCrop && (
           <div className="mt-4">
             <button onClick={handleReplace} className="mt-4 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded block mx-auto">
               Replace
@@ -313,9 +314,9 @@ const DemoFunctionality = () => {
           <img src={outputImageSrc} alt="Output" style={{ width: 'auto', height: 'auto' }} />
         </div>
       )}
-        {!!error && (
-          <div className="p-8 bg-gray-200 rounded-lg shadow-lg border-4 border-gray-400 mt-4" 
-              style={{ width: '512px', maxWidth: '512px' }}>
+      {!!error && (
+        <div>
+          <div className="p-8 bg-gray-200 rounded-lg shadow-lg border-4 border-gray-400 mt-4" style={{ width: '512px', maxWidth: '512px' }}>
             <p className="text-sm" style={{ wordWrap: 'break-word' }}>
               We did not find a couch to replace in your picture. Crop the image again, locating where you'd like to see the couch.
             </p>
@@ -328,7 +329,8 @@ const DemoFunctionality = () => {
                   setBoxCoordinates([cropCrop.x, cropCrop.y, cropCrop.width, cropCrop.height]);
                 }
                 console.log(boxCoordinates)
-              }}>
+              }}
+            >
               <img
                 src={croppedImage}
                 alt='Draw the space where the couch should be'
@@ -336,7 +338,14 @@ const DemoFunctionality = () => {
               />
             </ReactCrop>
           </div>
-        )}
+          <div className="mt-4">
+            <button onClick={handleReplace} className="mt-4 py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white rounded block mx-auto">
+              Add a couch
+            </button>
+          </div>
+        </div>
+      )}
+
 
 
 
