@@ -9,11 +9,11 @@ import Footer from 'components/Footers/Footer.js';
 const Demo = () => {
   return (  
     <>
-    <div>
+    
       <DemoHero/>
       <DemoFunctionality/>
       <Footer/>
-    </div>
+    
     
     
     </>
