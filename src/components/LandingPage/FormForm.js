@@ -38,7 +38,7 @@ const FormForm = () => {
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', alignItems: 'start' }}>
           <div>
             <label htmlFor='name' style={{ display: 'block' }}
-            className="text-blueGray-300">
+            className="text-blueGray-300 ">
                 Name *
                 </label>
             <input
@@ -48,6 +48,7 @@ const FormForm = () => {
               placeholder='John Doe'
               onChange={(e) => setName(e.target.value)}
               required
+              className='rounded mb-4'
             />
           </div>
           <div>
@@ -62,6 +63,7 @@ const FormForm = () => {
               onChange={(e) => setEmail(e.target.value)}
               placeholder='doe.john@neo-locus.com'
               required
+              className='rounded mb-4'
             />
           </div>
           <div>
@@ -75,6 +77,7 @@ const FormForm = () => {
               value={company}
               placeholder='NeoLocus'
               onChange={(e) => setCompany(e.target.value)}
+              className='rounded mb-4'
             />
           </div>
           <div className='mt-4'>
