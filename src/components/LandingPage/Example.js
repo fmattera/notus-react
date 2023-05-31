@@ -74,7 +74,7 @@ const Example = () => {
         <img
           alt="..."
           src={require("assets/img/item_pictures/smedstorp-2-seat-sofa-lejde-red-brown-black__0989821_pe818623_s5 Background Removed.png").default}
-          className="w-full align-middle absolute max-w-120-px -right-150-px top-95-px"
+          className="w-full align-middle absolute max-w-120-px left-150-px top-95-px"
         />
         {/* <img
           alt="..."
