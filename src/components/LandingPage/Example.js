@@ -12,13 +12,11 @@ const Example = () => {
         {/* <i class="fa-solid fa-microchip"></i> */}
       </div>
       <h3 className="text-3xl mb-2 font-semibold leading-normal">
-        Generative AI
+        Generative AI for Businesses
       </h3>
       <p className="text-lg font-light leading-relaxed mt-4 mb-4 text-blueGray-600">
         Powered by Stable Diffusion, we are able to generate high quality pictures
-        of any of your products. Our AI model is trained to replace similar objects 
-        in your input picture with your product, and soon you will be able to generate
-        completely new pictures by using a textprompt! 
+        of any of your products. Our AI model can place your models into any picture!
       </p>
       {/* <div className="block pb-6">
         <span className="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-blueGray-500 bg-white uppercase last:mr-0 mr-2 mt-2">
