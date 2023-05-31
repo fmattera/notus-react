@@ -182,14 +182,7 @@ const DemoFunctionality = () => {
     setBoxCoordinates(null);
   };
 
-  const [crop, setCrop] = useState({
-    unit: '%',
-    x: 25,
-    y: 25,
-    width: 50,
-    height: 50,
-    aspect: 1/1
-    });
+  const [crop, setCrop] = useState(null)
   
   const [crop2, setCrop2] = useState(null);
 
@@ -262,7 +255,7 @@ const DemoFunctionality = () => {
                 ref={imageRef}
                 alt="Crop"
                 className="object-contain"
-                style={{ maxHeight: '512px', maxWidth: '512px' }}
+                // style={{ maxHeight: '512px', maxWidth: '512px' }}
               />
             </ReactCrop>
               

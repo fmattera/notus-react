@@ -58,7 +58,7 @@ const Example = () => {
       <div className="relative flex flex-col min-w-0 w-full mb-6  md:mt-0 ">
         <img
           alt="..."
-          src={require("assets/img/vimle-landing.jpg").default}
+          src={require("assets/img/vimle-landing.png").default}
           className="w-full align-middle rounded absolute shadow-lg max-w-100-px z-3 left-145-px -top-29-px"
         />
         <img
@@ -73,19 +73,19 @@ const Example = () => {
         />
         <img
           alt="..."
-          src={require("assets/img/landing-text-blob.png").default}
-          className="w-full align-middle max-w-150-px -left-100-px top-25-px"
+          src={require("assets/img/item_pictures/smedstorp-2-seat-sofa-lejde-red-brown-black__0989821_pe818623_s5 Background Removed.png").default}
+          className="w-full align-middle absolute max-w-120-px -right-150-px top-95-px"
         />
         {/* <img
           alt="..."
-          src={require("assets/img/component-menu.png").default}
+          src={require("assets/img/item_pictures/up4.jpg").default}
           className="w-full align-middle rounded absolute shadow-lg max-w-580-px -left-20-px top-210-px"
-        />
+        /> */}
         <img
           alt="..."
-          src={require("assets/img/component-btn-pink.png").default}
-          className="w-full align-middle rounded absolute shadow-xl max-w-120-px left-195-px top-95-px"
-        /> */}
+          src={require("assets/img/item_pictures/up4.jpg").default}
+          className="w-full align-middle rounded absolute shadow-xl max-w-180-px left-195-px top-95-px"
+        /> 
       </div>
     </div>
   </div>

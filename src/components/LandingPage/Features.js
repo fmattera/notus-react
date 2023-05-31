@@ -103,7 +103,7 @@ const Features = () => {
                       </p>
                     </div>
                   </div>
-                  <div className="relative flex flex-col min-w-0">
+                  {/* <div className="relative flex flex-col min-w-0">
                     <div className="px-4 py-5 flex-auto">
                       <div className="text-blueGray-500 p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-white">
                         <i className="fas fa-file-alt"></i>
@@ -116,7 +116,7 @@ const Features = () => {
                         easy is to to work with Notus React.
                       </p>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
