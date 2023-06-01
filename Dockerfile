@@ -12,7 +12,7 @@ RUN rm -rf node_modules/
 RUN rm -rf package-lock.json
 
 # Install any needed packages specified in package.json
-RUN npm install
+RUN npm install --force
 
 # Copy the rest of the current directory contents into the container at /app
 COPY . .
