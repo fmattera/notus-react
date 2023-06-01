@@ -2,6 +2,7 @@ import AWS from 'aws-sdk';
 import React, { useState } from 'react';
 import IndexNavbar from 'components/Navbars/IndexNavbar.js';
 import Footer from "components/Footers/Footer.js";
+require('dotenv').config();
 
 const s3 = new AWS.S3({
   region: 'us-east-1',
